@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Que estádio é esse?</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="function.js" type="text/javascript"></script>
+</head>
+<body onload="configGame()">
+    
+    <main>
+        <section class="container">
+            <h1>Que estádio é esse?</h1>
+            <div class="container-img">
+                <img src="./dia1.jpg" alt="Qual é o estádio?" />
+            </div>
+
+            <div id="answer" class="container-answer-hide">
+                <div class="container-answer-title">Brocou!<br>A resposta certa é:</div>
+                <div class="container-answer-nome">Estádio Lomanto Júnior (Lomantão)</div>
+                <div class="container-answer-local">Vitória da Conquista - BA</div>
+            </div>
+
+            <div id="answer-wrong" class="container-answer-hide">
+                <div class="container-answer-title">Deu ruim!<br>A resposta certa é:</div>
+                <div class="container-answer-nome">Estádio Lomanto Júnior (Lomantão)</div>
+                <div class="container-answer-local">Vitória da Conquista - BA</div>
+            </div>
+            
+            <p>Digite as primeiras letras, clique no nome do estádio e aperte enter no teclado.</p>
+            <p>(é provisório)</p>
+
+            <fieldset id="wrap">
+                
+                    <label for="estadio">Diga aí: qual é o nome desse estádio?</label>
+                    
+                    <input class="answer-box" list="" name="estadio" id="estadio" type="text" placeholder="Digite o nome do estádio" 
+                    onkeypress="pressEnter(event, this)" autocomplete="off" onkeyup="showList()" >
+                    
+
+                    <datalist id="estadios">
+
+                    </datalist>
+                
+            </fieldset>
+
+            <div class="container-dicas">
+
+                <div class="container-dicas-title"><h4>Você tem <span id="chances"></span> chances</h4></div>
+
+                <div class="container-dicas-chances">
+                    <span id="chance1">⚽</span>
+                    <span id="chance2">⚽</span>
+                    <span id="chance3">⚽</span>
+                    <span id="chance4">⚽</span>
+                    <span id="chance5">⚽</span>
+                </div>
+
+                <div class="container-dicas-txt">
+                    <p>Dicas:</p>
+                </div>
+                
+                <ul>
+                    <li id="dica5" class="hidden">O nome do estádio é em homenagem a um ex-governador do Estado da Bahia.</li>
+                    <li id="dica4" class="hidden">O estádio é considerado um dos mais bonitos da Bahia e já recebeu duas finais de Baianão.</li>
+                    <li id="dica3" class="hidden">O recorde de público do estádio é de 15.728 pessoas, num jogo do Vitória, em janeiro de 2007.</li>
+                    <li id="dica2" class="hidden">O mascote do principal time mandante no estádio é um bode.</li>
+                    <li id="dica1" class="revealed">Foi inaugurado em 1966, numa partida entre Flamengo x Vasco.</li>
+
+                </ul>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <h5>Baseado no site estadi.ooo criado por "não sei o nome ainda".</h5>
+    </footer>
+
+</body>
+</html>
