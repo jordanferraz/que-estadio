@@ -7,7 +7,9 @@ var erro;
 var estadioCerto;
 var apelido;
 var code;
+var dica;
 
+const dicas = [];
 const lista = [];
 
 
@@ -28,7 +30,20 @@ d3.csv("./db-estadios.csv", function(data) {
 
     }
 
-	console.log(lista);
+	
+	for (var i = 0; i < data.length; i++) {
+		if(i==17){
+			for(contDica = 1; contDica <= 5; contDica++){
+			dica = data[i]['Dica' + contDica];
+
+			document.getElementById('dica'+contDica).insertAdjacentHTML('beforeend', dica);
+
+			dicas.push(dica);
+			}
+		}
+    }
+	
+	console.log(dicas);
 
 
 });
