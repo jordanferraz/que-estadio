@@ -1,16 +1,42 @@
 
+/* VARIAVEIS */
 
-/* FUNÇÃO - CONFIGURA O JOGO */
 var number;
 var tip;
 var erro;
-var estadioCerto;
+var nomeEstadio;
 var apelido;
 var code;
 var dica;
+var diaEstadio;
+
+/* CONFIGURA DATA */
+
+var today = new Date();
+
+    var options = {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric"
+    };
+
+    //today = today.toLocaleDateString("en", options);
+	today = "7/3/2022";
+
+/* CONFIG ARRAY */
 
 const dicas = [];
 const lista = [];
+
+/* FUNÇÃO - CONFIGURA O JOGO */
+
+function configGame(){
+
+	number = 5;
+	tip = 2;
+	erro = 1;
+	document.getElementById('chances').innerHTML = number;
+}
 
 
 /* D3 - IMPORTA CSV DATABASE */
@@ -28,32 +54,32 @@ d3.csv("./db-estadios.csv", function(data) {
 
 		document.getElementById('estadios').insertAdjacentHTML('beforeend', html);
 
-    }
+		diaEstadio = data[i].Data;
 
-	
-	for (var i = 0; i < data.length; i++) {
-		if(i==17){
+		if(diaEstadio == today){
 			for(contDica = 1; contDica <= 5; contDica++){
 			dica = data[i]['Dica' + contDica];
+
 
 			document.getElementById('dica'+contDica).insertAdjacentHTML('beforeend', dica);
 
 			dicas.push(dica);
 			}
+
+			imgEstadio = './img/' + data[i].Imagem;
+			document.getElementById('img-estadio').setAttribute('src', imgEstadio);
+
+			document.getElementById('nome-estadio').insertAdjacentHTML('beforeend', apelido);
+
+			console.log(apelido);
+			break
 		}
+
     }
-	
-	console.log(dicas);
 
 
 });
 
-function configGame(){
-	number = 5;
-	tip = 2;
-	erro = 1;
-	document.getElementById('chances').innerHTML = number;
-}
 
 function showList(){
 	var size = document.getElementById('estadio').value.length;
@@ -76,7 +102,7 @@ function pressEnter(e, input){
 	code = (e.keyCode ? e.keyCode : e.which);
 	if(code == 13) { //Enter keycode
 		var a = document.getElementById("estadio");
-		if(a.value=="Lomantão" || a.value=="Lomanto Júnior"){
+		if(a.value==apelido || a.value=="Lomanto Júnior"){
 			document.getElementById('answer').classList.add('container-answer');
 			document.getElementById('answer').classList.remove('container-answer-hide');
 			document.getElementById('wrap').style.display = 'none';
