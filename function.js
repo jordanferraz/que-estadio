@@ -48,11 +48,20 @@ d3.csv("./db-estadios.csv", function(data) {
 
     for (var i = 0; i < data.length; i++) {
         apelido = data[i].Apelido;
+		nomeOficial = data[i].NomeOficial;
+		cidade = data[i].Cidade;
+		estado = data[i].Estado;
 		html = '<option onclick="hideList()" id="estadio-option" value="'+apelido+'"></option>';
+		
 
 		lista.push(apelido);
 
 		document.getElementById('estadios').insertAdjacentHTML('beforeend', html);
+		
+		if(apelido != nomeOficial){
+			html2 = '<option onclick="hideList()" id="estadio-option" value="'+nomeOficial+'"></option>';
+			document.getElementById('estadios').insertAdjacentHTML('beforeend', html2);
+		}
 
 		diaEstadio = data[i].Data;
 
@@ -68,10 +77,15 @@ d3.csv("./db-estadios.csv", function(data) {
 
 			imgEstadio = './img/' + data[i].Imagem;
 			document.getElementById('img-estadio').setAttribute('src', imgEstadio);
+			
+			document.getElementById('nome-estadio1').insertAdjacentHTML('beforeend', apelido);
+			document.getElementById('nome-estadio2').insertAdjacentHTML('beforeend', apelido);
 
-			document.getElementById('nome-estadio').insertAdjacentHTML('beforeend', apelido);
+			local = cidade + ' - ' + estado;
+			document.getElementById('local-estadio1').insertAdjacentHTML('beforeend', local);
+			document.getElementById('local-estadio2').insertAdjacentHTML('beforeend', local);
 
-			console.log(apelido);
+			console.log(apelido, nomeOficial);
 			break
 		}
 
@@ -102,7 +116,7 @@ function pressEnter(e, input){
 	code = (e.keyCode ? e.keyCode : e.which);
 	if(code == 13) { //Enter keycode
 		var a = document.getElementById("estadio");
-		if(a.value==apelido || a.value=="Lomanto Júnior"){
+		if(a.value==apelido || a.value==nomeOficial){
 			document.getElementById('answer').classList.add('container-answer');
 			document.getElementById('answer').classList.remove('container-answer-hide');
 			document.getElementById('wrap').style.display = 'none';
@@ -118,6 +132,7 @@ function pressEnter(e, input){
 				document.getElementById('chance'+erro).innerHTML = document.getElementById('chance'+erro).textContent = "❌";
 				number = 0;
 				document.getElementById('wrap').style.display = 'none';
+				document.getElementById('tut-desc').style.display = 'none';
 				document.getElementById('answer-wrong').classList.remove('container-answer-hide');
 				document.getElementById('answer-wrong').classList.add('container-answer-wrong');				
 			}
