@@ -21,7 +21,7 @@ var today = new Date();
     };
 
     today = today.toLocaleDateString("en", options);
-	//today = "7/3/2022";
+	//today = "6/12/2022";
 
 /* CONFIG ARRAY */
 
@@ -51,7 +51,7 @@ d3.csv("./db-estadios.csv", function(data) {
 		nomeOficial = data[i].NomeOficial;
 		cidade = data[i].Cidade;
 		estado = data[i].Estado;
-		html = '<option onclick="hideList()" id="estadio-option" value="'+apelido+'"></option>';
+		html = '<option onclick="hideList()" id="estadio-option" onclick="clickedData()" value="'+apelido+'"></option>';
 		
 
 		lista.push(apelido);
@@ -68,7 +68,6 @@ d3.csv("./db-estadios.csv", function(data) {
 		
 	}
 
-	console.log(lista);
 
     for (var i = 0; i < data.length; i++) {
         apelido = data[i].Apelido;
@@ -156,4 +155,41 @@ function pressEnter(e, input){
 			
 		}
 	}
+}
+
+
+/* FUNÇÃO - TESTA A RESPOSTA PARA CLIQUE NO DATALIST */
+
+function clickedData(a){
+
+	
+		var a = document.getElementById("estadio");
+		if(a.value==apelido || a.value==nomeOficial){
+			document.getElementById('answer').classList.add('container-answer');
+			document.getElementById('answer').classList.remove('container-answer-hide');
+			document.getElementById('wrap').style.display = 'none';
+		}else{
+			if(number > 1){
+				document.getElementById('chance'+erro).innerHTML = document.getElementById('chance'+erro).textContent = "❌";
+				document.getElementById('dica'+tip).classList.add('revealed');
+				document.getElementById('dica'+tip).classList.remove('hidden');
+				document.getElementById('estadio').value = '';
+				
+				number--;
+			}else{
+				document.getElementById('chance'+erro).innerHTML = document.getElementById('chance'+erro).textContent = "❌";
+				number = 0;
+				document.getElementById('wrap').style.display = 'none';
+				document.getElementById('tut-desc').style.display = 'none';
+				document.getElementById('answer-wrong').classList.remove('container-answer-hide');
+				document.getElementById('answer-wrong').classList.add('container-answer-wrong');				
+			}
+			
+			tip++;
+			erro++;
+			
+			document.getElementById('chances').innerHTML = number;
+			
+		}
+	
 }

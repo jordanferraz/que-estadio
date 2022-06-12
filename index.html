@@ -37,7 +37,7 @@
                     <label for="estadio">Diga aí: qual é o nome desse estádio?</label>
                     
                     <input class="answer-box" list="" name="estadio" id="estadio" type="text" placeholder="Digite o nome do estádio" 
-                    onkeypress="pressEnter(event, this)" autocomplete="off" onkeyup="showList()" >
+                    onkeypress="pressEnter(event, this)" onchange="clickedData(this)" autocomplete="off" onkeyup="showList()" >
                     
 
                     <datalist id="estadios">
