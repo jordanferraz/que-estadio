@@ -46,8 +46,8 @@ d3.csv("./db-estadios.csv", function(data) {
 
 	/* ADICIONA OS ESTÁDIOS NO DATALIST */
 
-    for (var i = 0; i < data.length; i++) {
-        apelido = data[i].Apelido;
+	for (var i = 0; i < data.length; i++) {
+		apelido = data[i].Apelido;
 		nomeOficial = data[i].NomeOficial;
 		cidade = data[i].Cidade;
 		estado = data[i].Estado;
@@ -63,6 +63,18 @@ d3.csv("./db-estadios.csv", function(data) {
 			document.getElementById('estadios').insertAdjacentHTML('beforeend', html2);
 		}
 
+		diaEstadio = data[i].Data;
+
+		
+	}
+
+	console.log(lista);
+
+    for (var i = 0; i < data.length; i++) {
+        apelido = data[i].Apelido;
+		nomeOficial = data[i].NomeOficial;
+		cidade = data[i].Cidade;
+		estado = data[i].Estado;
 		diaEstadio = data[i].Data;
 
 		if(diaEstadio == today){
@@ -85,14 +97,14 @@ d3.csv("./db-estadios.csv", function(data) {
 			document.getElementById('local-estadio1').insertAdjacentHTML('beforeend', local);
 			document.getElementById('local-estadio2').insertAdjacentHTML('beforeend', local);
 
-			console.log(apelido, nomeOficial);
+			
 			break
 		}
 
     }
 
-
 });
+
 
 
 function showList(){
