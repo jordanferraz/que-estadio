@@ -36,6 +36,9 @@
     width: 400px;
     height: 400px;
     overflow: hidden;
+    background: url(./loading.gif) no-repeat;
+    background-position: center;
+    background-size: 30% auto;
 }
 
 .container-img img{
