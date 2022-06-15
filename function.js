@@ -193,3 +193,12 @@ function clickedData(a){
 		}
 	
 }
+
+/* SHARE RESULT */
+
+function shareResult() {
+	var copyText = "Eu acertei o estádio em 3 tentativas. E você, consegue acertar? Tenta aí: link";
+	insertShare = "<p><b>Copiado para sua área de transferência. Cola lá no zap!</b></p><p>" + copyText + "</p>";
+	navigator.clipboard.writeText(copyText);
+	document.getElementById('share').insertAdjacentHTML('beforeend', insertShare);
+}
