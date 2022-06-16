@@ -9,6 +9,7 @@ var apelido;
 var code;
 var dica;
 var diaEstadio;
+var shareIcon;
 
 /* CONFIGURA DATA */
 
@@ -207,8 +208,21 @@ function shareResult() {
 		tentativa = " tentativas.";
 	}
 
-	var copyText = "<b>Eu acertei o estádio em " + erro + tentativa + "</b><br> E você, consegue acertar?<br><br>Tenta aí: " + document.URL;
-	insertShare = "<p><b>Copiado para sua área de transferência.<br><br>Cola lá no zap!</b></p><p>" + copyText + "</p>";
+if(erro<4){
+
+	var copyText = "Eu acertei o estádio em " + erro + tentativa + ". E você, consegue acertar? Tenta aí: " + document.URL;
+	insertShare = "<p>" + copyText + "</p>";
 	navigator.clipboard.writeText(copyText);
-	document.getElementById('share').insertAdjacentHTML('beforeend', insertShare);
+	window.alert("Copiado para o seu ctrl+c. É só colar lá no WhatsApp ou Twitter!");
+	document.getElementById('share-clicked').insertAdjacentHTML('beforeend', insertShare);
+
+}else{
+
+	var copyText = "Fiz " + erro + tentativa + " mas não acertei o estádio. E você, consegue acertar? Tenta aí: " + document.URL;
+	insertShare = "<p>" + copyText + "</p>";
+	navigator.clipboard.writeText(copyText);
+	window.alert("Copiado para o seu ctrl+c. É só colar lá no WhatsApp ou Twitter!");
+	document.getElementById('share-clicked2').insertAdjacentHTML('beforeend', insertShare);
+
+}
 }
