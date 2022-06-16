@@ -21,7 +21,7 @@ var today = new Date();
     };
 
     today = today.toLocaleDateString("en", options);
-	//today = "6/15/2022";
+	//today = "6/16/2022";
 
 /* CONFIG ARRAY */
 
@@ -89,8 +89,11 @@ d3.csv("./db-estadios.csv", function(data) {
 			imgEstadio = './img/' + data[i].Imagem;
 			document.getElementById('img-estadio').setAttribute('src', imgEstadio);
 			
-			document.getElementById('nome-estadio1').insertAdjacentHTML('beforeend', apelido);
-			document.getElementById('nome-estadio2').insertAdjacentHTML('beforeend', apelido);
+			document.getElementById('nome-estadio1').insertAdjacentHTML('beforeend', "(" + apelido + ")");
+			document.getElementById('nome-estadio2').insertAdjacentHTML('beforeend', "(" + apelido + ")");
+
+			document.getElementById('apelido-estadio1').insertAdjacentHTML('beforeend', nomeOficial);
+			document.getElementById('apelido-estadio2').insertAdjacentHTML('beforeend', nomeOficial);
 
 			local = cidade + ' - ' + estado;
 			document.getElementById('local-estadio1').insertAdjacentHTML('beforeend', local);
