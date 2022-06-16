@@ -134,18 +134,19 @@
 }
 
 
-.container-share-clicked{
-    margin: 30px 0px 10px 0px;
+.container-share-clicked, .container-share-clicked2{
+    width: 90%;
+    margin: 30px auto 10px auto;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border:1px solid white;
     display: none;
 }
 
-.container-share-clicked p{
+
+.container-share-clicked p, .container-share-clicked2 p{
     padding:0px 10px 20px 10px;
     margin:0;
 }
