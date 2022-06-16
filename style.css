@@ -48,6 +48,7 @@
     display: none;
 }
 .container-answer{
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -83,6 +84,26 @@
 
 .container-answer-local{
     font-size: 0.9rem;
+}
+
+.container-share{
+    background-color: white;
+    margin: 20px 0px 0px 0px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+
+}
+
+.container-share p{
+    color:rgb(75, 184, 75);
+    font-weight: 700;
+    text-align: center;
+    font-size:15px;
+    padding:5px 0px 15px 0px;
 }
 
 .container p{

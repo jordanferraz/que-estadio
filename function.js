@@ -197,8 +197,15 @@ function clickedData(a){
 /* SHARE RESULT */
 
 function shareResult() {
-	var copyText = "Eu acertei o estádio em 3 tentativas. E você, consegue acertar? Tenta aí: link";
-	insertShare = "<p><b>Copiado para sua área de transferência. Cola lá no zap!</b></p><p>" + copyText + "</p>";
+
+	if(erro == 1){
+		tentativa = " tentativa.";
+	}else{
+		tentativa = " tentativas.";
+	}
+
+	var copyText = "<b>Eu acertei o estádio em " + erro + tentativa + "</b><br> E você, consegue acertar?<br><br>Tenta aí: " + document.URL;
+	insertShare = "<p><b>Copiado para sua área de transferência.<br><br>Cola lá no zap!</b></p><p>" + copyText + "</p>";
 	navigator.clipboard.writeText(copyText);
 	document.getElementById('share').insertAdjacentHTML('beforeend', insertShare);
 }
