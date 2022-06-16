@@ -215,7 +215,7 @@ if(erro < 4){
 	navigator.clipboard.writeText(copyText);
 	document.getElementById('share-clicked').style.display = 'flex';
 	document.getElementById('share-clicked').insertAdjacentHTML('beforeend', insertShare);
-	window.alert("Copiado para o seu ctrl+c. É só colar lá no WhatsApp ou Twitter!");
+	//window.alert("Copiado para o seu ctrl+c. É só colar lá no WhatsApp ou Twitter!");
 	
 
 }else{
@@ -227,7 +227,7 @@ if(erro < 4){
 	navigator.clipboard.writeText(copyText);
 	document.getElementById('share-clicked2').style.display = 'flex';
 	document.getElementById('share-clicked2').insertAdjacentHTML('beforeend', insertShare);
-	window.alert("Copiado para o seu ctrl+c. É só colar lá no WhatsApp ou Twitter!");
+	//window.alert("Copiado para o seu ctrl+c. É só colar lá no WhatsApp ou Twitter!");
 	
 
 }
