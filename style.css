@@ -49,6 +49,7 @@
 }
 .container-answer{
     width: 100%;
+    max-width:400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -62,6 +63,7 @@
 
 .container-answer-wrong{
     width: 100%;
+    max-width:400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,8 +90,9 @@
 }
 
 .container-share{
+    width: 80%;
     background-color: white;
-    margin: 20px 0px 0px 0px;
+    margin: 20px auto 0px auto;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -109,8 +112,9 @@
 }
 
 .container-share2{
+    width: 80%;
     background-color: white;
-    margin: 20px 0px 0px 0px;
+    margin: 20px auto 0px auto;
     cursor: pointer;
     display: flex;
     flex-direction: column;

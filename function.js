@@ -208,14 +208,16 @@ function shareResult() {
 		tentativa = " tentativas.";
 	}
 
+
+
 if(erro < 4){
 
 	var copyText = "Eu acertei o estádio em " + erro + tentativa + ". E você, consegue acertar? Tenta aí: " + document.URL;
-	insertShare = "<p>" + copyText + "</p>";
+	insertShare = "<p><b>Copiado para o seu ctrl+c. É só colar lá no WhatsApp ou Twitter!</b></p><p>" + copyText + "</p>";
 	navigator.clipboard.writeText(copyText);
 	document.getElementById('share-clicked').style.display = 'flex';
 	document.getElementById('share-clicked').insertAdjacentHTML('beforeend', insertShare);
-	//window.alert("Copiado para o seu ctrl+c. É só colar lá no WhatsApp ou Twitter!");
+	
 	
 
 }else{
@@ -223,11 +225,10 @@ if(erro < 4){
 	erro--;
 
 	var copyText = "Fiz " + erro + tentativa + " mas não acertei o estádio. E você, consegue acertar? Tenta aí: " + document.URL;
-	insertShare = "<p>" + copyText + "</p>";
+	insertShare = "<p>Copiado para o seu ctrl+c. É só colar lá no WhatsApp ou Twitter!</p><p>" + copyText + "</p>";
 	navigator.clipboard.writeText(copyText);
 	document.getElementById('share-clicked2').style.display = 'flex';
 	document.getElementById('share-clicked2').insertAdjacentHTML('beforeend', insertShare);
-	//window.alert("Copiado para o seu ctrl+c. É só colar lá no WhatsApp ou Twitter!");
 	
 
 }
