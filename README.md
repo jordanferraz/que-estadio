@@ -1,4 +1,4 @@
-##SOBRE O 'QUE ESTADIO'
+SOBRE O 'QUE ESTADIO'
 
 Resolvi desenvolver este projeto após algumas semanas tem ter jogado um joguinho que eu e meus amigos considerávamos como algo fundamental para começar o dia. O nome era estadi.ooo. Infelizmente, o site não tem passado por atualizações.
 
