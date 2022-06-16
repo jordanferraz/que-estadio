@@ -138,7 +138,7 @@
     align-items: center;
     justify-content: center;
     border:1px solid white;
-
+    display: none;
 }
 
 .container-share-clicked p{
