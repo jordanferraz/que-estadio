@@ -22,7 +22,7 @@ var today = new Date();
     };
 
     today = today.toLocaleDateString("en", options);
-	//today = "6/17/2022";
+	//today = "6/18/2022";
 
 /* CONFIG ARRAY */
 
