@@ -22,7 +22,7 @@ var today = new Date();
     };
 
     today = today.toLocaleDateString("en", options);
-	//today = "6/16/2022";
+	//today = "6/17/2022";
 
 /* CONFIG ARRAY */
 
@@ -210,7 +210,7 @@ function shareResult() {
 
 
 
-if(erro < 4){
+if(erro <= 5){
 
 	var copyText = "Eu acertei o estádio em " + erro + tentativa + "... E você, consegue acertar? Tenta aí: " + document.URL;
 	insertShare = "<p><b>Copiado para o seu ctrl+c. É só colar lá no WhatsApp ou Twitter!</b></p><p>" + copyText + "</p>";
