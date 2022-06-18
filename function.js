@@ -21,8 +21,8 @@ var today = new Date();
         day: "numeric"
     };
 
-    //today = today.toLocaleDateString("en", options);
-	today = "6/19/2022";
+    today = today.toLocaleDateString("en", options);
+	//today = "6/19/2022";
 
 /* CONFIG ARRAY */
 
