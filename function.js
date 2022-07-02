@@ -11,6 +11,7 @@ var dica;
 var diaEstadio;
 var shareIcon;
 var apelidoAlt;
+var fonte; 
 
 /* CONFIGURA DATA */
 
@@ -22,8 +23,8 @@ var today = new Date();
         day: "numeric"
     };
 
-   // today = today.toLocaleDateString("en", options);
-	today = "7/2/2022";
+    today = today.toLocaleDateString("en", options);
+	//today = "7/3/2022";
 
 /* CONFIG ARRAY */
 
@@ -55,11 +56,11 @@ d3.csv("./db-estadios.csv", function(data) {
 		cidade = data[i].Cidade;
 		estado = data[i].Estado;
 		html = '<option onclick="hideList()" id="estadio-option" onclick="clickedData()" value="'+apelido+'"></option>';
-		
-
+	
 		lista.push(apelido);
 
 		document.getElementById('estadios').insertAdjacentHTML('beforeend', html);
+		
 		
 		if(apelido != nomeOficial){
 			html2 = '<option onclick="hideList()" id="estadio-option" value="'+nomeOficial+'"></option>';
@@ -72,6 +73,7 @@ d3.csv("./db-estadios.csv", function(data) {
 		}
 
 		diaEstadio = data[i].Data;
+		
 
 		
 	}
@@ -84,6 +86,8 @@ d3.csv("./db-estadios.csv", function(data) {
 		cidade = data[i].Cidade;
 		estado = data[i].Estado;
 		diaEstadio = data[i].Data;
+		fonte = data[i].Fonte;
+		htmlFonte = '<h5>Fonte: '+fonte+'</h5>';
 
 		if(diaEstadio == today){
 			for(contDica = 1; contDica <= 5; contDica++){
@@ -92,7 +96,13 @@ d3.csv("./db-estadios.csv", function(data) {
 
 			document.getElementById('dica'+contDica).insertAdjacentHTML('beforeend', dica);
 
+			
+
 			dicas.push(dica);
+			}
+
+			if(fonte !== ""){
+				document.getElementById('listaDicas').insertAdjacentHTML('beforeend', htmlFonte);
 			}
 
 			imgEstadio = './img/' + data[i].Imagem;

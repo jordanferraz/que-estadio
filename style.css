@@ -199,6 +199,12 @@
     margin:15px 0px 0px 0px;
 }
 
+.container-dicas h5{
+    text-align: center;
+    font-weight: 500;
+    margin-top: 15px;
+}
+
 .container-dicas-title{
     text-align: center;
 }
