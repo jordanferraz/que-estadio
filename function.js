@@ -10,6 +10,7 @@ var code;
 var dica;
 var diaEstadio;
 var shareIcon;
+var apelidoAlt;
 
 /* CONFIGURA DATA */
 
@@ -21,8 +22,8 @@ var today = new Date();
         day: "numeric"
     };
 
-    today = today.toLocaleDateString("en", options);
-	//today = "7/1/2022";
+   // today = today.toLocaleDateString("en", options);
+	today = "7/2/2022";
 
 /* CONFIG ARRAY */
 
@@ -50,6 +51,7 @@ d3.csv("./db-estadios.csv", function(data) {
 	for (var i = 0; i < data.length; i++) {
 		apelido = data[i].Apelido;
 		nomeOficial = data[i].NomeOficial;
+		apelidoAlt = data[i].Apelido2;
 		cidade = data[i].Cidade;
 		estado = data[i].Estado;
 		html = '<option onclick="hideList()" id="estadio-option" onclick="clickedData()" value="'+apelido+'"></option>';
@@ -64,6 +66,11 @@ d3.csv("./db-estadios.csv", function(data) {
 			document.getElementById('estadios').insertAdjacentHTML('beforeend', html2);
 		}
 
+		if(apelidoAlt != nomeOficial && apelidoAlt !== ""){
+			html2 = '<option onclick="hideList()" id="estadio-option" value="'+apelidoAlt+'"></option>';
+			document.getElementById('estadios').insertAdjacentHTML('beforeend', html2);
+		}
+
 		diaEstadio = data[i].Data;
 
 		
@@ -73,6 +80,7 @@ d3.csv("./db-estadios.csv", function(data) {
     for (var i = 0; i < data.length; i++) {
         apelido = data[i].Apelido;
 		nomeOficial = data[i].NomeOficial;
+		apelidoAlt = data[i].Apelido2;
 		cidade = data[i].Cidade;
 		estado = data[i].Estado;
 		diaEstadio = data[i].Data;
@@ -131,7 +139,10 @@ function pressEnter(e, input){
 	code = (e.keyCode ? e.keyCode : e.which);
 	if(code == 13) { //Enter keycode
 		var a = document.getElementById("estadio");
-		if(a.value==apelido || a.value==nomeOficial){
+		if( a.value == ""){
+			a = false;
+		}
+		if(a.value==apelido || a.value==nomeOficial || a.value==apelidoAlt){
 			document.getElementById('answer').classList.add('container-answer');
 			document.getElementById('answer').classList.remove('container-answer-hide');
 			document.getElementById('wrap').style.display = 'none';
@@ -168,7 +179,7 @@ function clickedData(a){
 
 	
 		var a = document.getElementById("estadio");
-		if(a.value==apelido || a.value==nomeOficial){
+		if(a.value==apelido || (a.value==nomeOficial || a.value==apelidoAlt)){
 			document.getElementById('answer').classList.add('container-answer');
 			document.getElementById('answer').classList.remove('container-answer-hide');
 			document.getElementById('wrap').style.display = 'none';
