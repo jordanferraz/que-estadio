@@ -233,7 +233,31 @@ function shareResult() {
 
 if(erro <= 5){
 
-	var copyText = "Eu acertei o estádio em " + erro + tentativa + "... E você, consegue acertar? Tenta aí: " + document.URL;
+	let iconErro = "";
+	let iconAcerto = "";
+
+	acertoCont = erro;
+	erroCont = erro - 1;
+
+	console.log('acertoCont:' + acertoCont);
+
+	console.log('erroCont:' + erroCont);
+
+	while(acertoCont <=5){
+		iconAcerto = iconAcerto + "⚽";
+		acertoCont++;
+		
+	}
+	console.log("acertoCont = " + acertoCont);
+	console.log("erroCont = " + (acertoCont-erroCont));
+
+	while((acertoCont - erro) > 0){
+		iconErro = iconErro + "❌";
+		acertoCont--;
+	}
+
+	var copyText = "Eu acertei o estádio em " + erro + tentativa + "... E você, faz melhor? Tenta aí: " + document.URL;
+	
 	insertShare = "<p><b>Copiado para o seu ctrl+c. É só colar lá no WhatsApp ou Twitter!</b></p><p>" + copyText + "</p>";
 	navigator.clipboard.writeText(copyText);
 	document.getElementById('share-clicked').style.display = 'flex';
@@ -245,7 +269,7 @@ if(erro <= 5){
 
 	erro--;
 
-	var copyText = "Fiz " + erro + tentativa + " mas não acertei o estádio. E você, consegue acertar? Tenta aí: " + document.URL;
+	var copyText = "Fiz " + erro + tentativa + " mas não acertei o estádio. E você, faz melhor? Tenta aí: " + document.URL;
 	insertShare = "<p><b>Copiado para o seu ctrl+c. É só colar lá no WhatsApp ou Twitter!</b></p><p>" + copyText + "</p>";
 	navigator.clipboard.writeText(copyText);
 	document.getElementById('share-clicked2').style.display = 'flex';
