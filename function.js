@@ -23,8 +23,8 @@ var today = new Date();
         day: "numeric"
     };
 
-    today = today.toLocaleDateString("en", options);
-	//today = "7/3/2022";
+    //today = today.toLocaleDateString("en", options);
+	today = "7/10/2022";
 
 /* CONFIG ARRAY */
 
